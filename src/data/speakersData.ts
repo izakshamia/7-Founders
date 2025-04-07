@@ -9,16 +9,16 @@ export const speakers: SpeakerType[] = [
     featured: true
   },
   {
-    name: "Ido Almani",
+    name: "Ido Almany",
     title: "CEO Zoomd Technologies",
-    description: "Ido Almany, CEO of Zoomd Technologies (TSXV: ZOMD), is a tech-savvy executive with over a decade of experience in marketing, strategy, and execution. Prior to Zoomd, he led American Express Israel as General Manager and CEO of Premium Express LTD, achieving sustainable growth with annual revenues of $140 million",
+    description: "Ido Almany, CEO of Zoomd Technologies (TSXV: ZOMD), is a tech-savvy executive with over a decade of experience in marketing, strategy, and execution. Prior to Zoomd, he led American Express Israel as the CEO, achieving sustainable growth with annual revenues of $140 million",
     imageSrc: "https://media.licdn.com/dms/image/v2/C4D03AQHletAGZC8Xow/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1663442799856?e=1748476800&v=beta&t=ZYBwtoBOLMpOYP12tRB7z3vb_WaSUFSgu2drRGhUSYk",
     featured: true
   },
   {
     name: "Or Azarzar",
     title: "Co-Founder & CTO at Lightspin",
-    description: "Or Azarzar began his journey as an electrician soldier in the submarine. In January 20', he co-founded Lightspin, a cloud security startup. Under his leadership as CTO, Lightspin developed advanced solutions for cloud security posture management. On May 23', Lightspin was acquired by Cisco for an estimate of $250M",
+    description: "Or Azarzar began his journey as an electrician soldier in the submarine. In January 2020, he co-founded Lightspin, a cloud security startup. Under his leadership as CTO, Lightspin developed advanced solutions for cloud security posture management. In March 2023, Cisco announced its intent to acquire Lightspin for an estimated $250 million",
     imageSrc: "https://media.licdn.com/dms/image/v2/C4D03AQGxdEBiaBTpHw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1605211551363?e=1748476800&v=beta&t=LJZkVFNssFodstQbNrRsymHN_r0F2USetFnhnUZIL-k",
     featured: true
   },

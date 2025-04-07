@@ -4,7 +4,7 @@ import GoldButton from '@/components/GoldButton';
 
 const panelSpeakers = [
     "Amir Nechemia - ConnectTeam CEO",
-    "Ido Almani - CEO Zoomd Technologies (ZOMD.TSXv) | Former CEO, American Express Israel | Executive Leadership | Tech | Investor",
+    "Ido Almany - CEO Zoomd Technologies (ZOMD.TSXv) | Former CEO, American Express Israel | Executive Leadership | Tech | Investor",
     "Or Azarzar - Co-Founder & CTO at Lightspin (Acquired by Cisco), Director of Engineering at Cisco"
 ];
 

@@ -47,7 +47,7 @@ const SpeakerModal: React.FC<SpeakerModalProps> = ({ speaker, onClose }) => {
           </div>
 
           {/* Speaker info */}
-          <div className="flex-1 p-4 sm:p-6 overflow-y-auto">
+          <div className="flex-1 p-6 sm:p-8 overflow-y-auto">
             <div className="mb-2">
               <span className="px-2 py-1 bg-gold-dark/20 text-gold-light text-xs rounded-full">
                 {speaker.featured ? 'Special Guest' : 'Speaker'}
