@@ -25,7 +25,7 @@ const LocationSection: React.FC = () => {
               
               <p className="text-white/80 mb-4">
                 Playground Restaurant - 
-                 כתובת: דרך מנחם בגין 144 ז׳, שוכנת בלובי מלון פליי מידטאון, דרך מנחם בגין 144, תל אביב-יפו
+                 כתובת: דרך מנחם בגין 144 ז׳, שוכנת בלובי מלון פליי מידטאון, תל אביב-יפו
               </p>
               
               <p className="text-white/80 mb-6">

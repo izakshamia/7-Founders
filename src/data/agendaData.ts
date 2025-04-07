@@ -2,33 +2,28 @@ import { AgendaItemType } from '@/types/agenda';
 
 export const agendaItems: AgendaItemType[] = [
   {
-    time: "18:00 - 18:30",
-    title: "Gathering",
-    description: "Meet and greet with refreshments.",
+    time: "18:00 - 19:00",
+    title: "Gathering & Dinner",
+    description: "Meet and greet with dinner.",
   },
   {
-    time: "18:30 - 19:15",
-    title: "Panel",
+    time: "19:00 - 19:45",
+    title: "Entrepreneurs Panel",
     description: "Discussion with industry leaders.",
   },
   {
-    time: "19:15 - 19:30",
-    title: "Break",
+    time: "19:45 - 20:00",
+    title: "Short Break",
     description: "Short break for refreshments.",
   },
   {
-    time: "19:30 - 20:00",
-    title: "Special Speaker",
-    description: "Presentation by our special speaker.",
-  },
-  {
     time: "20:00 - 21:10",
-    title: "Reveal the Program",
-    description: "Overview of the upcoming program.",
+    title: "Program Reveal & Matchmaking",
+    description: "Overview of the upcoming program. Remarks by the Dolphin Association CEO",
   },
   {
     time: "21:10 - 21:30",
-    title: "Dinner + Networking + Gifts",
-    description: "Enjoy dinner and network with attendees.",
+    title: "Networking, Gifts & Drinks",
+    description: "Enjoy network with attendees.",
   }
 ];

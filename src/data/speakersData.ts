@@ -3,7 +3,7 @@ import { SpeakerType } from '@/types/speaker';
 export const speakers: SpeakerType[] = [
   {
     name: "Amir Nechemia",
-    title: "ConnectTeam CEO",
+    title: "Connecteam CEO",
     description: "Amir Nehemia, a former submarine electronics officer, co-founded Connecteam in 2016 to enhance communication for deskless workers. Under his leadership, the platform has raised $160M in funding and now serves over 500K users across 36K companies worldwide.",
     imageSrc: "https://media.licdn.com/dms/image/v2/C4E03AQFaIYJlNucswg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516494406642?e=1748476800&v=beta&t=0xnY4vAplIvByL42q8-0ZvGd7sEMaIFedLweuTaghes",
     featured: true

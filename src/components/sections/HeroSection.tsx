@@ -9,15 +9,14 @@ const panelSpeakers = [
 ];
 
 const agenda = [
-    "18:00 - 18:30: Gathering",
-    "18:30 - 19:15: Panel",
-    "19:15 - 19:30: Break",
-    "19:30 - 20:00: Special Guest",
-    "20:00 - 21:10: Reveal the Program",
-    "21:10 - 21:30: Dinner + Networking + Gifts"
+    "18:00 - 19:00 Gathering & Dinner",
+    "19:00 - 19:45: Entrepreneurs Panel",
+    "19:45 - 20:00: Short Break",
+    "20:00 - 21:10: Program Reveal, Matchmaking, and Remarks by the Dolphin Association CEO ",
+    "21:10 - 21:30:  Networking, Gifts& Drinks"
 ];
 
-const location = "Playground Restaurant - מסעדת פלייגראונד כתובת: דרך מנחם בגין 144 ז׳, שוכנת בלובי מלון פליי מידטאון, דרך מנחם בגין 144, תל אביב-יפו";
+const location = "Playground Restaurant - מסעדת פלייגראונד כתובת: דרך מנחם בגין 144 ז׳, שוכנת בלובי מלון פליי מידטאון144, תל אביב-יפו";
 
 const HeroSection: React.FC = () => {
   return (
