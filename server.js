@@ -36,7 +36,7 @@ const sheets = google.sheets({ version: 'v4', auth });
 const SPREADSHEET_ID = process.env.SPREADSHEET_ID || '1iQ97qEdsGjxgVjSu-RrQrXBMPbFRwhK5BBSsTjKVFRY';
 const SHEET_NAME = process.env.SHEET_NAME || 'web';
 
-app.post('/join-club', async (req, res) => {
+app.post('/api/join-club', async (req, res) => {
   try {
     console.log('Received request:', {
       body: req.body,
