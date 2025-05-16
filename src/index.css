@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-navy text-foreground antialiased overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 20% 35%, rgba(14, 165, 233, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 80% 10%, rgba(212, 175, 55, 0.05) 0%, transparent 35%);
+  }
+}
+
+/* Custom classes */
+@layer components {
+  .sonar-wrapper {
+    @apply relative;
+  }
+  
+  .sonar-emitter {
+    @apply w-full h-full rounded-full bg-gold-light/30 relative z-10;
+  }
+  
+  .sonar-wave {
+    @apply absolute top-0 left-0 w-full h-full rounded-full z-0 opacity-0 pointer-events-none animate-pulse-sonar;
+    background: rgba(212, 175, 55, 0.2);
+  }
+  
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-lg shadow-lg;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(14, 165, 233, 0.03) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .glass-card:hover::before {
+    opacity: 1;
+  }
+  
+  .shimmer-bg {
+    @apply relative overflow-hidden;
+  }
+  
+  .shimmer-bg::after {
+    content: '';
+    @apply absolute top-0 left-0 w-[200%] h-full bg-gold-shimmer animate-bg-shimmer;
+  }
+  
+  .text-outline {
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Submarine themed animations */
+  .bubbles-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .bubble {
+    position: absolute;
+    bottom: -20px;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    opacity: 0;
+    animation: bubble-rise 15s infinite ease-in;
+  }
+  
+  @keyframes bubble-rise {
+    0% {
+      transform: translateY(0) scale(0.5);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.3;
+    }
+    40% {
+      opacity: 0.4;
+    }
+    80% {
+      opacity: 0.2;
+    }
+    100% {
+      transform: translateY(-1000%) scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  /* Periscope scan effect */
+  .periscope-scan {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, transparent, rgba(14, 165, 233, 0.3), transparent);
+    z-index: 1;
+    opacity: 0.3;
+    animation: periscope-scan 8s infinite ease-in-out;
+    pointer-events: none;
+  }
+  
+  @keyframes periscope-scan {
+    0% {
+      left: 0%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.3;
+    }
+    50% {
+      left: 100%;
+      opacity: 0.3;
+    }
+    90% {
+      opacity: 0;
+    }
+    100% {
+      left: 0%;
+      opacity: 0;
+    }
+  }
+  
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Gold gradient text */
+  .text-gold-gradient {
+    background: linear-gradient(90deg, #D4AF37, #F2D675, #9E7C23);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 3s ease-in-out infinite;
+  }
+  
+  @keyframes shine {
+    0% {
+      background-position: 0% center;
+    }
+    50% {
+      background-position: 100% center;
+    }
+    100% {
+      background-position: 0% center;
+    }
+  }
+  
+  /* Animated underline for links */
+  .hover-underline {
+    @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-gold-light after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+  
+  /* Deep sea depth effect */
+  .depth-gradient {
+    background: linear-gradient(0deg, rgba(9, 24, 51, 0.8) 0%, rgba(16, 37, 71, 0.6) 50%, rgba(30, 58, 108, 0.4) 100%);
+  }
+}
+
+/* Enhanced submarine animations */
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  80% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-1000%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Improved periscope scan effect */
+@keyframes periscope-scan {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  50% {
+    left: 100%;
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    left: 0%;
+    opacity: 0;
+  }
+}
+
+/* Submarine control panel lights */
+.control-light {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.7);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  animation: control-light-blink 3s infinite alternate;
+}
+
+@keyframes control-light-blink {
+  0%, 80% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Sonar ping animation */
+.sonar-ping {
+  position: relative;
+}
+
+.sonar-ping::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.2);
+  animation: sonar-ping 2s ease-out infinite;
+  z-index: -1;
+}
+
+@keyframes sonar-ping {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* Hull metal texture */
+.hull-texture {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(16, 37, 71, 0.6),
+    rgba(16, 37, 71, 0.6) 10px,
+    rgba(30, 58, 108, 0.4) 10px,
+    rgba(30, 58, 108, 0.4) 20px
+  );
+}
+
+/* Submarine depth pressure effect */
+.depth-pressure {
+  animation: depth-pressure 15s ease-in-out infinite;
+}
+
+@keyframes depth-pressure {
+  0%, 100% {
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* styles.css */
+.your-custom-button-class {
+  background-color: #FFD700; /* Gold background */
+  color: #000; /* Black text */
+  padding: 10px 20px; /* Padding */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+  display: inline-block; /* Make it behave like a button */
+}
+
+.your-custom-button-class:hover {
+  background-color: #FFC107; /* Darker gold on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
