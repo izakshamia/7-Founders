@@ -23,11 +23,23 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Function to format private key
+const formatPrivateKey = (key) => {
+  if (!key) return '';
+  // Remove any escaped newlines and add actual newlines
+  const formattedKey = key.replace(/\\n/g, '\n');
+  // Ensure the key starts and ends correctly
+  if (!formattedKey.startsWith('-----BEGIN PRIVATE KEY-----')) {
+    return `-----BEGIN PRIVATE KEY-----\n${formattedKey}\n-----END PRIVATE KEY-----`;
+  }
+  return formattedKey;
+};
+
 // Initialize the Google Sheets API
 const auth = new google.auth.GoogleAuth({
   credentials: {
     client_email: process.env.GOOGLE_CLIENT_EMAIL,
-    private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+    private_key: formatPrivateKey(process.env.GOOGLE_PRIVATE_KEY),
   },
   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
@@ -102,11 +114,14 @@ app.post('/api/join-club', async (req, res) => {
       details: response.data
     });
   } catch (error) {
-    console.error('Error details:', {
-      message: error.message,
-      code: error.code,
-      stack: error.stack,
-      response: error.response?.data
+    console.error('Error processing registration:', {
+      error,
+      errorMessage: error.message,
+      errorStack: error.stack,
+      credentials: {
+        clientEmail: process.env.GOOGLE_CLIENT_EMAIL ? 'Set' : 'Not set',
+        privateKeyLength: process.env.GOOGLE_PRIVATE_KEY ? process.env.GOOGLE_PRIVATE_KEY.length : 0
+      }
     });
     
     return res.status(500).json({ 
