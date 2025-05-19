@@ -10,6 +10,7 @@ interface FormData {
   name: string;
   phone: string;
   email: string;
+  submarineId: string;
 }
 
 interface ApiResponse {
@@ -24,6 +25,7 @@ interface ApiResponse {
     name: boolean;
     phone: boolean;
     email: boolean;
+    submarineId: boolean;
   };
 }
 
@@ -136,6 +138,25 @@ const JoinClubModal: React.FC<JoinClubModalProps> = ({ isOpen, onClose }) => {
             />
             {errors.email && (
               <p className="mt-1 text-red-400 text-sm">{errors.email.message}</p>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor="submarineId" className="block text-white/80 mb-1">Submarine ID</label>
+            <input
+              id="submarineId"
+              type="text"
+              {...register('submarineId', {
+                required: 'Submarine ID is required',
+                pattern: {
+                  value: /^[0-9]{9}$/,
+                  message: 'Please enter a valid 9-digit Submarine ID'
+                }
+              })}
+              className="w-full px-4 py-2 bg-navy-light/30 border border-white/20 rounded-lg text-white focus:outline-none focus:border-gold"
+            />
+            {errors.submarineId && (
+              <p className="mt-1 text-red-400 text-sm">{errors.submarineId.message}</p>
             )}
           </div>
 

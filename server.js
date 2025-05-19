@@ -55,11 +55,11 @@ app.post('/api/join-club', async (req, res) => {
       headers: req.headers
     });
 
-    const { name, phone, email } = req.body;
+    const { name, phone, email, submarineId } = req.body;
 
     // Validate required fields
-    if (!name || !phone || !email) {
-      console.error('Missing required fields:', { name, phone, email });
+    if (!name || !phone || !email || !submarineId) {
+      console.error('Missing required fields:', { name, phone, email, submarineId });
       return res.status(400).json({ 
         success: false,
         message: 'Missing required fields',
@@ -94,9 +94,11 @@ app.post('/api/join-club', async (req, res) => {
     // Append the data
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: SPREADSHEET_ID,
-      range: `${SHEET_NAME}!A:D`,
-      valueInputOption: 'USER_ENTERED',
-      insertDataOption: 'INSERT_ROWS',
+      range: `${SHEET_NAME}!A:E`,
+      valueInputOption: 'RAW',
+      resource: {
+        values: [[name, phone, email, submarineId]]
+      },
       requestBody: {
         values,
       },
