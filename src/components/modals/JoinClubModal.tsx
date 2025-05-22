@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Textarea } from '@/components/ui/textarea';
 
 interface JoinClubModalProps {
   isOpen: boolean;
@@ -11,6 +12,7 @@ interface FormData {
   phone: string;
   email: string;
   submarineId: string;
+  aboutMe?: string; // Added optional aboutMe field
 }
 
 interface ApiResponse {
@@ -158,6 +160,17 @@ const JoinClubModal: React.FC<JoinClubModalProps> = ({ isOpen, onClose }) => {
             {errors.submarineId && (
               <p className="mt-1 text-red-400 text-sm">{errors.submarineId.message}</p>
             )}
+          </div>
+
+          <div>
+            <label htmlFor="aboutMe" className="block text-white/80 mb-1">About Me (Optional)</label>
+            <Textarea
+              id="aboutMe"
+              {...register('aboutMe')}
+              className="w-full px-4 py-2 bg-navy-light/30 border border-white/20 rounded-lg text-white focus:outline-none focus:border-gold"
+              rows={3}
+            />
+            {/* No error display needed as it's optional */}
           </div>
 
           <button

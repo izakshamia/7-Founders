@@ -37,8 +37,8 @@ export default async function handler(
       sheetName: SHEET_NAME
     });
 
-    const { name, phone, email } = req.body;
-    console.log('Received form data:', { name, phone, email });
+    const { name, phone, email, aboutMe, submarineId } = req.body;
+    console.log('Received form data:', { name, phone, email, aboutMe, submarineId });
 
     // Validate required fields
     if (!name || !phone || !email) {
@@ -53,14 +53,14 @@ export default async function handler(
     const timestamp = new Date().toISOString();
 
     // Prepare the row data
-    const values = [[timestamp, name, phone, email]];
+    const values = [[timestamp, name, phone, email, submarineId || '', aboutMe || '']]; // Default to empty string if not provided
     console.log('Prepared values for spreadsheet:', values);
 
     try {
       // First, verify we can access the spreadsheet and get sheet info
       const spreadsheet = await sheets.spreadsheets.get({
         spreadsheetId: SPREADSHEET_ID,
-        ranges: [`${SHEET_NAME}!A:D`],
+        ranges: [`${SHEET_NAME}!A:F`], // Adjusted range to include potential new column
         includeGridData: false
       });
       
@@ -75,7 +75,7 @@ export default async function handler(
       // Then append the data
       const response = await sheets.spreadsheets.values.append({
         spreadsheetId: SPREADSHEET_ID,
-        range: `${SHEET_NAME}!A:D`,
+        range: `${SHEET_NAME}!A:F`, // Adjusted range for appending
         valueInputOption: 'USER_ENTERED',
         insertDataOption: 'INSERT_ROWS',
         requestBody: {
